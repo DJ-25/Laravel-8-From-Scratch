@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 
     return view('posts', [
-        'posts' => Post::latest()->get()
+        'posts' => Post::latest()->with(['category', 'author'])->get()
     ]);
 });
 
@@ -25,7 +25,7 @@ Route::get('categories/{category:slug}', function (Category $category) {
     ]);
 });
 
-Route::get('authors:username', function (User $author) {
+Route::get('authors/{author:username}', function (User $author) {
     return view('posts', [
         'posts' => $author->posts
     ]);

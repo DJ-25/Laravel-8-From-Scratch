@@ -23,13 +23,6 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
     
-    
-    
-    //protected $fillable = ['title', 'excerpt', 'body', 'id'];
-    // public function getRouteKeyName()
-    // {
-    //     return 'slug';
-    // }
 }
 
 
