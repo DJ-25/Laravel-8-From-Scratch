@@ -11,7 +11,10 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
 Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
-Route::post('logout', [SessionsController::class, 'destroy']);
+
+Route::get('login', [SessionsController::class, 'create'])->middleware('guest');
+Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
+Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
 // Route::get('authors/{author:username}', function (User $author) 
 // {
